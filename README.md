@@ -44,7 +44,7 @@ This calculator supports the following operations:
 
       Compound Interest
 
-- 🛠️ How It Works
+# 🛠️ How It Works
 
       The user selects an operation from the menu.
 
