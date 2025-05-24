@@ -70,9 +70,9 @@ This calculator supports the following operations:
  
 # 🧑‍🎓 Author
 
-Deepika
-Python enthusiast | Learner | Passionate about building simple tools
+- Deepika
+- Python enthusiast | Learner | Passionate about building Python Projects
 
 # 📜 License
 
-This project is open-source and available under the MIT License.
+- This project is open-source and available under the MIT License.
