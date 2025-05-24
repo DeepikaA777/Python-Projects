@@ -61,3 +61,18 @@ This calculator supports the following operations:
 - History log of calculations
 
 - Support for trigonometric functions
+
+# 📁 Folder Structure
+
+📦calculator
+ ┣ 📜calculator.py
+ ┗ 📜README.md
+ 
+# 🧑‍🎓 Author
+
+Deepika
+Python enthusiast | Learner | Passionate about building simple tools
+
+# 📜 License
+
+This project is open-source and available under the MIT License.
