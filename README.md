@@ -6,45 +6,50 @@ This is a simple and powerful command-line calculator written in Python. It supp
 # 📌 Features
 This calculator supports the following operations:
 
-- 🔢 Basic Arithmetic
-   Addition
+- 🔢 Basic Arithmetic:
+  
+     Addition
 
-Subtraction
+     Subtraction
 
-Multiplication
+     Multiplication
 
-Division (with zero check)
+     Division (with zero check)
 
-Modulus
+     Modulus
 
-Power
+- 🧠 Mathematical Functions
 
-🧠 Mathematical Functions
-Square Root
+      Power
+    
+      Square Root
 
-Factorial
+      Factorial
 
-Logarithm (base e)
+      Logarithm (base e)
 
-Count number of digits
+      Count number of digits
 
-Reverse a number
+      Reverse a number
 
-🔍 Number Checks
-Even or Odd
+- 🔍 Number Checks
 
-Prime or Not
+     Even or Odd
 
-💰 Finance Calculations
-Simple Interest
+     Prime or Not
 
-Compound Interest
+- 💰 Finance Calculations
 
-🛠️ How It Works
-The user selects an operation from the menu.
+     Simple Interest
 
-Inputs are taken based on the operation.
+     Compound Interest
 
-The result is calculated and displayed.
+- 🛠️ How It Works
 
-The program runs in a loop until the user selects "Exit".
+     The user selects an operation from the menu.
+
+     Inputs are taken based on the operation.
+
+     The result is calculated and displayed.
+
+     The program runs in a loop until the user selects "Exit".
