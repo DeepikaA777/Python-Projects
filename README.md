@@ -8,15 +8,15 @@ This calculator supports the following operations:
 
 - 🔢 Basic Arithmetic:
   
-     Addition
+      Addition
 
-     Subtraction
+      Subtraction
 
-     Multiplication
+      Multiplication
 
-     Division (with zero check)
+      Division (with zero check)
 
-     Modulus
+      Modulus
 
 - 🧠 Mathematical Functions
 
@@ -34,22 +34,22 @@ This calculator supports the following operations:
 
 - 🔍 Number Checks
 
-     Even or Odd
+      Even or Odd
 
-     Prime or Not
+      Prime or Not
 
 - 💰 Finance Calculations
 
-     Simple Interest
+      Simple Interest
 
-     Compound Interest
+      Compound Interest
 
 - 🛠️ How It Works
 
-     The user selects an operation from the menu.
+      The user selects an operation from the menu.
 
-     Inputs are taken based on the operation.
+      Inputs are taken based on the operation.
 
-     The result is calculated and displayed.
+      The result is calculated and displayed.
 
-     The program runs in a loop until the user selects "Exit".
+      The program runs in a loop until the user selects "Exit".
