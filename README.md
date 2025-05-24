@@ -53,3 +53,11 @@ This calculator supports the following operations:
      - The result is calculated and displayed.
 
      - The program runs in a loop until the user selects "Exit".
+
+# 💡 Future Enhancements
+
+- GUI version using Tkinter or PyQt
+
+- History log of calculations
+
+- Support for trigonometric functions
