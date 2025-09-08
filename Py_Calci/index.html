@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gray-200">
+
+  <div class="flex gap-10">
+    <!-- Pink Theme -->
+    <div class="w-72 rounded-3xl shadow-2xl p-5 bg-gradient-to-b from-pink-200 to-pink-400">
+      <div class="h-28 flex flex-col justify-end pr-3">
+        <div id="exp3" class="text-right text-3xl font-bold text-black">0</div>
+        <div id="res3" class="text-right text-lg text-gray-700"></div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-3 mt-4">
+        <button onclick="clearDisplay('exp3','res3')" class="py-3 rounded-xl bg-black text-white font-bold">AC</button>
+        <button onclick="deleteLast('exp3')" class="py-3 rounded-xl bg-black text-white">⌫</button>
+        <button onclick="setUnary('countdigits','exp3','res3')" class="py-3 rounded-xl bg-blue-500 text-white">#</button>
+        <button onclick="setBinary('divide','÷','exp3')" class="py-3 rounded-xl bg-blue-500 text-white">/</button>
+
+        <button onclick="appendValue('7','exp3')" class="py-3 rounded-xl bg-white">7</button>
+        <button onclick="appendValue('8','exp3')" class="py-3 rounded-xl bg-white">8</button>
+        <button onclick="appendValue('9','exp3')" class="py-3 rounded-xl bg-white">9</button>
+        <button onclick="setBinary('multiply','×','exp3')" class="py-3 rounded-xl bg-blue-500 text-white">×</button>
+
+        <button onclick="appendValue('4','exp3')" class="py-3 rounded-xl bg-white">4</button>
+        <button onclick="appendValue('5','exp3')" class="py-3 rounded-xl bg-white">5</button>
+        <button onclick="appendValue('6','exp3')" class="py-3 rounded-xl bg-white">6</button>
+        <button onclick="setBinary('subtract','-','exp3')" class="py-3 rounded-xl bg-blue-500 text-white">−</button>
+
+        <button onclick="appendValue('1','exp3')" class="py-3 rounded-xl bg-white">1</button>
+        <button onclick="appendValue('2','exp3')" class="py-3 rounded-xl bg-white">2</button>
+        <button onclick="appendValue('3','exp3')" class="py-3 rounded-xl bg-white">3</button>
+        <button onclick="setBinary('add','+','exp3')" class="py-3 rounded-xl bg-blue-500 text-white">+</button>
+
+        <button onclick="appendValue('0','exp3')" class="col-span-2 py-3 rounded-xl bg-white">0</button>
+        <button onclick="appendValue('.','exp3')" class="py-3 rounded-xl bg-white">.</button>
+        <button onclick="calculate('exp3','res3')" class="py-3 rounded-xl bg-green-600 text-white">=</button>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  const binaryOps = ['add','subtract','multiply','divide','modulus','power'];
+  const unaryOps = ['squarert','fact','logarithm','evenodd','prime','reverse','countdigits'];
+  const triOps = ['simple_interest','compound_interest'];
+
+  let currentInput = "";
+  let currentOperation = null;
+  let numbers = [];
+  let opSymbol = "";
+
+  function updateDisplay(expId) {
+    const exprEl = document.getElementById(expId);
+    if (numbers.length > 0 && opSymbol) {
+      exprEl.innerText = `${numbers[0]} ${opSymbol} ${currentInput || ''}`;
+    } else {
+      exprEl.innerText = currentInput || (numbers[0] !== undefined ? String(numbers[0]) : "0");
+    }
+  }
+
+  function appendValue(val, expId='exp1') {
+    if (val === '.' && currentInput.includes('.')) return;
+    currentInput += val;
+    updateDisplay(expId);
+  }
+
+  function clearDisplay(expId='exp1', resId='res1') {
+    currentInput = "";
+    currentOperation = null;
+    numbers = [];
+    opSymbol = "";
+    document.getElementById(expId).innerText = "0";
+    document.getElementById(resId).innerText = "";
+  }
+
+  function deleteLast(expId='exp1') {
+    currentInput = currentInput.slice(0, -1);
+    updateDisplay(expId);
+  }
+
+  function setBinary(opName, symbol, expId='exp1') {
+    if (currentInput === "" && numbers.length === 0) return;
+    if (currentInput !== "") {
+      numbers = [parseFloat(currentInput)];
+      currentInput = "";
+    }
+    currentOperation = opName;
+    opSymbol = symbol;
+    updateDisplay(expId);
+  }
+
+  function setUnary(opName, expId='exp1', resId='res1') {
+    if (currentInput === "" && numbers.length === 0) return;
+    const val = currentInput !== "" ? parseFloat(currentInput) : numbers[0];
+    currentOperation = opName;
+    numbers = [val];
+    calculate(expId,resId);
+  }
+
+  async function calculate(expId='exp1', resId='res1') {
+    if (currentInput !== "") {
+      numbers.push(parseFloat(currentInput));
+    }
+
+    if (!currentOperation) {
+      document.getElementById(resId).innerText = "No operation";
+      return;
+    }
+
+    try {
+      // Example local calculations for demonstration
+      let result;
+      switch(currentOperation){
+        case 'add': result = numbers[0]+numbers[1]; break;
+        case 'subtract': result = numbers[0]-numbers[1]; break;
+        case 'multiply': result = numbers[0]*numbers[1]; break;
+        case 'divide': result = numbers[0]/numbers[1]; break;
+        case 'countdigits': result = String(numbers[0]).replace('.','').length; break;
+        default: result = "Error";
+      }
+
+      document.getElementById(resId).innerText = result;
+      document.getElementById(expId).innerText = result;
+    } catch(e){
+      document.getElementById(resId).innerText = "Error";
+    }
+
+    currentInput = "";
+    numbers = [];
+    currentOperation = null;
+    opSymbol = "";
+  }
+</script>
+</body>
+</html>
